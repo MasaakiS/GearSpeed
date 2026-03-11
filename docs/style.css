@@ -1,0 +1,39 @@
+body {
+  font-family: sans-serif;
+  margin: 1rem;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+input, select, textarea, button {
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+button {
+  margin-right: 0.5rem;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.3rem;
+  text-align: center;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #000;
+    color: #fff;
+  }
+  input, select, textarea, button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #555;
+  }
+  table, th, td {
+    border-color: #555;
+  }
+}
