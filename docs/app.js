@@ -48,27 +48,93 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  function createTable(frontGear, outerDiameter, rearGears) {
-    const cadences = [70,80,90,100,110];
-    let html = '<table><thead><tr><th>#</th><th>T</th><th>Ratio</th><th>\u0394R</th>';
-    cadences.forEach(c => html += `<th>${c}</th>`);
-    html += '</tr></thead><tbody>';
-    rearGears.sort((a,b)=>a-b);
-    let prevRatio = null;
-    rearGears.forEach((t,i) => {
-      const ratio = frontGear / t;
-      const dr = prevRatio !== null ? Math.abs(ratio - prevRatio) : '';
-      html += `<tr><td>${i+1}</td><td>${t}</td><td>${ratio.toFixed(2)}</td><td>${dr?dr.toFixed(2):''}</td>`;
-      cadences.forEach(c => {
-        const speed = Math.PI * outerDiameter * c * 60 * ratio / 1e6;
-        html += `<td>${speed.toFixed(1)}</td>`;
+// helper: speed color grading (mimics Python version)
+    function getSpeedColor(speed) {
+      let s = Math.max(0, Math.min(speed, 60));
+      const ratio = s / 60.0;
+      let r,g,b;
+      if (ratio <= 0.25) {
+        r = Math.floor(52 + (100 - 52) * (ratio / 0.25));
+        g = Math.floor(152 + (180 - 152) * (ratio / 0.25));
+        b = Math.floor(219 + (255 - 219) * (ratio / 0.25));
+      } else if (ratio <= 0.5) {
+        const local = (ratio - 0.25) / 0.25;
+        r = Math.floor(100 + (76 - 100) * local);
+        g = Math.floor(180 + (205 - 180) * local);
+        b = Math.floor(255 + (92 - 255) * local);
+      } else if (ratio <= 0.75) {
+        const local = (ratio - 0.5) / 0.25;
+        r = Math.floor(76 + (255 - 76) * local);
+        g = Math.floor(205 + (235 - 205) * local);
+        b = Math.floor(92 + (59 - 92) * local);
+      } else {
+        const local = (ratio - 0.75) / 0.25;
+        r = 255;
+        g = Math.floor(235 + (99 - 235) * local);
+        b = Math.floor(59 + (71 - 59) * local);
+      }
+      return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+    }
+
+    function getRatioDiffColor(rd) {
+      let d = Math.abs(rd);
+      d = Math.max(0.05, Math.min(d, 0.50));
+      let r,g,b;
+      if (d <= 0.15) {
+        const local = (d - 0.05) / 0.10;
+        r = Math.floor(76 - (76 - 46) * local);
+        g = Math.floor(175 + (205 - 175) * local);
+        b = Math.floor(80 - (80 - 92) * local);
+      } else if (d <= 0.30) {
+        const local = (d - 0.15) / 0.15;
+        r = Math.floor(46 + (255 - 46) * local);
+        g = Math.floor(205 + (235 - 205) * local);
+        b = Math.floor(92 - (92 - 59) * local);
+      } else {
+        const local = Math.min((d - 0.30) / 0.20, 1.0);
+        r = 255;
+        g = Math.floor(235 - (235 - 140) * local);
+        b = Math.floor(59 - (59 - 50) * local);
+      }
+      return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+    }
+
+    function createTable(frontGear, outerDiameter, rearGears) {
+      const cadences = [70,80,90,100,110];
+      const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const numBg = isDark ? '#0a84ff' : '#007aff';
+      const gearBg = isDark ? '#1c1c1e' : '#f2f2f7';
+      const gearText = isDark ? '#ffffff' : '#3c3c43';
+      const headerBg = isDark ? '#1c1c1e' : '#007aff';
+      const headerText = isDark ? '#ffffff' : '#ffffff';
+
+      let html = `<table><thead><tr style="background:${headerBg};color:${headerText};"><th>#</th><th>T</th><th>Ratio</th><th>\u0394R</th>`;
+      cadences.forEach(c => html += `<th>${c}</th>`);
+      html += '</tr></thead><tbody>';
+      rearGears.sort((a,b)=>a-b);
+      let prevRatio = null;
+      rearGears.forEach((t,i) => {
+        const ratio = frontGear / t;
+        const dr = prevRatio !== null ? Math.abs(ratio - prevRatio) : '';
+        html += '<tr>';
+        // number column
+        html += `<td style="background:${numBg};color:white;font-weight:bold;">${i+1}</td>`;
+        // gear column
+        html += `<td style="background:${gearBg};color:${gearText};font-weight:bold;">${t}</td>`;
+        html += `<td>${ratio.toFixed(2)}</td>`;
+        html += `<td style="background:${dr?getRatioDiffColor(dr):'transparent'};color:#333;">${dr?dr.toFixed(2):''}</td>`;
+        cadences.forEach(c => {
+          const speed = Math.PI * outerDiameter * c * 60 * ratio / 1e6;
+          const color = getSpeedColor(speed);
+          const textcol = speed > 45 ? 'white' : '#333';
+          html += `<td style="background:${color};color:${textcol};">${speed.toFixed(1)}</td>`;
+        });
+        html += '</tr>';
+        prevRatio = ratio;
       });
-      html += '</tr>';
-      prevRatio = ratio;
-    });
-    html += '</tbody></table>';
-    tableDiv.innerHTML = html;
-  }
+      html += '</tbody></table>';
+      tableDiv.innerHTML = html;
+    }
 
   // register service worker
   if ('serviceWorker' in navigator) {
