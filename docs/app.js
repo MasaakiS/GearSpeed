@@ -16,6 +16,106 @@ document.addEventListener('DOMContentLoaded', () => {
     customSection.style.display = mode.value === 'custom' ? 'block' : 'none';
   });
 
+  // settings and presets
+  let cachedSettings = null;
+  function fetchSettings() {
+    return fetch('bike_speed_settings.json', {cache: 'no-store'})
+      .then(r => r.json())
+      .then(json => {
+        const str = JSON.stringify(json);
+        const prev = localStorage.getItem('cachedSettings');
+        if (prev !== str) {
+          localStorage.setItem('cachedSettings', str);
+          console.log('Settings updated');
+        }
+        cachedSettings = json;
+        populatePresetList();
+      }).catch(e => console.warn('could not load settings', e));
+  }
+
+  function populatePresetList() {
+    if (!cachedSettings || !cachedSettings.cassette_presets) return;
+    const sel = document.getElementById('preset');
+    sel.innerHTML = '<option value="">-- select --</option>';
+    cachedSettings.cassette_presets.forEach((p,i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = p.model;
+      sel.appendChild(opt);
+    });
+  }
+
+  document.getElementById('preset').addEventListener('change', e => {
+    const idx = e.target.value;
+    if (idx === '') return;
+    const p = cachedSettings.cassette_presets[idx];
+    rearInput.value = p.gears.join(',');
+    mode.value = 'custom';
+    customSection.style.display = 'block';
+  });
+
+  document.getElementById('download-presets').addEventListener('click', () => {
+    if (!cachedSettings) return;
+    const blob = new Blob([JSON.stringify(cachedSettings, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'bike_speed_settings.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // custom gear sets stored separately in localStorage
+  function loadCustomSets() {
+    const list = JSON.parse(localStorage.getItem('customGears')||'[]');
+    const sel = document.getElementById('custom-list');
+    sel.innerHTML = '';
+    list.forEach((item,i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = item.name;
+      sel.appendChild(opt);
+    });
+  }
+  loadCustomSets();
+
+  document.getElementById('save-custom').addEventListener('click', () => {
+    const text = rearInput.value.trim();
+    if (!text) { alert('Enter numbers first'); return; }
+    const gears = text.split(/[^0-9]+/).filter(s=>s).map(n=>parseInt(n,10));
+    if (gears.length===0) { alert('No valid gears'); return; }
+    const name = prompt('Name this set');
+    if (!name) return;
+    const list = JSON.parse(localStorage.getItem('customGears')||'[]');
+    list.push({name, gears});
+    localStorage.setItem('customGears', JSON.stringify(list));
+    loadCustomSets();
+  });
+
+  document.getElementById('custom-list').addEventListener('change', e => {
+    const idx = e.target.value;
+    if (idx === '') return;
+    const list = JSON.parse(localStorage.getItem('customGears')||'[]');
+    const item = list[idx];
+    if (item) {
+      rearInput.value = item.gears.join(',');
+    }
+  });
+
+  document.getElementById('export-custom').addEventListener('click', () => {
+    const list = JSON.parse(localStorage.getItem('customGears')||'[]');
+    const blob = new Blob([JSON.stringify(list, null,2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'custom_gear_sets.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // fetch settings on start
+  fetchSettings();
+
   generateBtn.addEventListener('click', () => {
     const f = parseFloat(front.value);
     if (isNaN(f) || f < 20 || f > 60) {

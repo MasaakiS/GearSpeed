@@ -2,5 +2,42 @@
   "theme": "auto",
   "front_gear": 50,
   "wheel_size": "700c",
-  "tire_width": 28
+  "tire_width": 28,
+  "cassette_presets": [
+    {
+      "type": "ロード用スプロケット",
+      "model": "DURA-ACE CS-R9200 / ULTEGRA CS-R8100 11-30T",
+      "gears": [11,12,13,14,15,16,17,19,21,24,27,30]
+    },
+    {
+      "type": "ロード用スプロケット",
+      "model": "DURA-ACE CS-R9200 / ULTEGRA CS-R8100 11-34T",
+      "gears": [11,12,13,14,15,17,19,21,24,27,30,34]
+    },
+    {
+      "type": "ロード用スプロケット",
+      "model": "105 CS-R7100 / R7101 11-34T",
+      "gears": [11,12,13,14,15,17,19,21,24,27,30,34]
+    },
+    {
+      "type": "ロード用スプロケット",
+      "model": "105 CS-HG710 11-36T",
+      "gears": [11,12,13,14,15,17,19,21,24,28,32,36]
+    },
+    {
+      "type": "MTB用スプロケット（Micro Spline）",
+      "model": "XTR CS-M9100 / XT CS-M8100 10-45T",
+      "gears": [10,12,14,16,18,21,24,28,32,36,40,45]
+    },
+    {
+      "type": "MTB用スプロケット（Micro Spline）",
+      "model": "XTR CS-M9100 / XT CS-M8100 / SLX CS-M7100 10-51T",
+      "gears": [10,12,14,16,18,21,24,28,33,39,45,51]
+    },
+    {
+      "type": "MTB用スプロケット（Micro Spline）",
+      "model": "DEORE CS-M6100 10-51T",
+      "gears": [10,12,14,16,18,21,24,28,33,39,45,51]
+    }
+  ]
 }
