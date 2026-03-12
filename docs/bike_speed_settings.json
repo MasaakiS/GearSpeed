@@ -155,6 +155,182 @@
       "model": "Ekar GT (13速) 10-44T",
       "gears": [10,11,12,13,15,17,19,22,26,30,34,40,44],
       "speeds": 13
-    }
+    },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "DURA-ACE CS-9000 / ULTEGRA CS-6800 11-25T",
+            "gears": [11,12,13,14,15,17,19,21,23,25],
+            "speeds": 11
+        },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "DURA-ACE CS-9000 / ULTEGRA CS-6800 11-28T",
+            "gears": [11,12,13,14,15,17,19,21,23,25,28],
+            "speeds": 11
+        },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "ULTEGRA CS-R8000 11-30T",
+            "gears": [11,12,13,14,15,17,19,21,24,27,30],
+            "speeds": 11
+        },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "ULTEGRA CS-R8000 11-32T",
+            "gears": [11,12,13,14,16,18,20,22,25,28,32],
+            "speeds": 11
+        },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "DURA-ACE CS-7900 11-25T",
+            "gears": [11,12,13,14,15,17,19,21,23,25],
+            "speeds": 10
+        },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "DURA-ACE CS-7900 11-28T",
+            "gears": [11,12,13,14,15,17,19,21,24,28],
+            "speeds": 10
+        },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "ULTEGRA CS-6700 11-25T",
+            "gears": [11,12,13,14,15,17,19,21,23,25],
+            "speeds": 10
+        },
+        {
+            "type": "ロード用スプロケット",
+            "category": "ロード",
+            "manufacturer": "Shimano",
+            "model": "ULTEGRA CS-6700 11-28T",
+            "gears": [11,12,13,14,15,17,19,21,24,28],
+            "speeds": 10
+        },
+        {
+            "type": "SRAM ロード用（XG-1190、XDRボディ）",
+            "category": "ロード",
+            "manufacturer": "SRAM",
+            "model": "RED XG-1190 11-25T",
+            "gears": [11,12,13,14,15,16,17,19,21,23,25],
+            "speeds": 11
+        },
+        {
+            "type": "SRAM ロード用（XG-1190、XDRボディ）",
+            "category": "ロード",
+            "manufacturer": "SRAM",
+            "model": "RED XG-1190 11-28T",
+            "gears": [11,12,13,14,15,16,17,19,22,25,28],
+            "speeds": 11
+        },
+        {
+            "type": "SRAM ロード用（XG-1190、XDRボディ）",
+            "category": "ロード",
+            "manufacturer": "SRAM",
+            "model": "RED XG-1190 11-32T",
+            "gears": [11,12,13,14,15,17,19,22,25,28,32],
+            "speeds": 11
+        },
+        {
+            "type": "SRAM ロード用（PG-1170、HGボディ）",
+            "category": "ロード",
+            "manufacturer": "SRAM",
+            "model": "FORCE/RIVAL PG-1170 11-25T",
+            "gears": [11,12,13,14,15,17,19,21,23,25],
+            "speeds": 11
+        },
+        {
+            "type": "SRAM ロード用（PG-1170、HGボディ）",
+            "category": "ロード",
+            "manufacturer": "SRAM",
+            "model": "FORCE/RIVAL PG-1170 11-28T",
+            "gears": [11,12,13,14,15,17,19,21,23,25,28],
+            "speeds": 11
+        },
+        {
+            "type": "SRAM ロード用（PG-1070、HGボディ）",
+            "category": "ロード",
+            "manufacturer": "SRAM",
+            "model": "FORCE/RIVAL PG-1070 11-25T",
+            "gears": [11,12,13,14,15,17,19,21,23,25],
+            "speeds": 10
+        },
+        {
+            "type": "SRAM ロード用（PG-1070、HGボディ）",
+            "category": "ロード",
+            "manufacturer": "SRAM",
+            "model": "FORCE/RIVAL PG-1070 11-28T",
+            "gears": [11,12,13,14,15,17,19,21,24,28],
+            "speeds": 10
+        },
+        {
+            "type": "カンパニューロ ロード用（専用ボディ）",
+            "category": "ロード",
+            "manufacturer": "Campagnolo",
+            "model": "Record/Chorus 11s 11-25T",
+            "gears": [11,12,13,14,15,16,17,19,21,23,25],
+            "speeds": 11
+        },
+        {
+            "type": "カンパニューロ ロード用（専用ボディ）",
+            "category": "ロード",
+            "manufacturer": "Campagnolo",
+            "model": "Record/Chorus 11s 11-27T",
+            "gears": [11,12,13,14,15,17,19,21,23,25,27],
+            "speeds": 11
+        },
+        {
+            "type": "カンパニューロ ロード用（専用ボディ）",
+            "category": "ロード",
+            "manufacturer": "Campagnolo",
+            "model": "Record/Chorus 11s 11-29T",
+            "gears": [11,12,13,14,15,17,19,21,23,26,29],
+            "speeds": 11
+        },
+        {
+            "type": "カンパニューロ ロード用（専用ボディ）",
+            "category": "ロード",
+            "manufacturer": "Campagnolo",
+            "model": "Record/Chorus 11s 11-32T",
+            "gears": [11,12,13,14,15,17,19,22,25,28,32],
+            "speeds": 11
+        },
+        {
+            "type": "カンパニューロ ロード用（専用ボディ）",
+            "category": "ロード",
+            "manufacturer": "Campagnolo",
+            "model": "Veloce 10s 11-25T",
+            "gears": [11,12,13,14,15,17,19,21,23,25],
+            "speeds": 10
+        },
+        {
+            "type": "カンパニューロ ロード用（専用ボディ）",
+            "category": "ロード",
+            "manufacturer": "Campagnolo",
+            "model": "Veloce 10s 12-25T",
+            "gears": [12,13,14,15,16,17,19,21,23,25],
+            "speeds": 10
+        },
+        {
+            "type": "カンパニューロ ロード用（専用ボディ）",
+            "category": "ロード",
+            "manufacturer": "Campagnolo",
+            "model": "Chorus 10s 12-27T",
+            "gears": [12,13,14,15,16,17,19,21,24,27],
+            "speeds": 10
+        }
   ]
 }
