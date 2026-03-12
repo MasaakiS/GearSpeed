@@ -37,8 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!cachedSettings || !cachedSettings.cassette_presets) return;
     const catFilter = document.getElementById('filter-category').value;
     const manFilter = document.getElementById('filter-manufacturer').value;
-    const speedsFilter = document.getElementById('filter-speeds').value;
-    const sel = document.getElementById('preset');
+        const speedsFilter = (document.getElementById('filter-speeds') || {value:'12'}).value || '12';
     sel.innerHTML = '<option value="">-- select --</option>';
     // also refresh manufacturer options
     const manSet = new Set();
