@@ -35,12 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function populatePresetList() {
     if (!cachedSettings || !cachedSettings.cassette_presets) return;
+    const catFilter = document.getElementById('filter-category').value;
+    const manFilter = document.getElementById('filter-manufacturer').value;
     const sel = document.getElementById('preset');
     sel.innerHTML = '<option value="">-- select --</option>';
+    // also refresh manufacturer options
+    const manSet = new Set();
     cachedSettings.cassette_presets.forEach((p,i) => {
+      if (p.manufacturer) manSet.add(p.manufacturer);
+    });
+    const manSel = document.getElementById('filter-manufacturer');
+    manSel.innerHTML = '<option value="">All</option>';
+    Array.from(manSet).sort().forEach(m => {
+      const o = document.createElement('option'); o.value=m; o.textContent=m; manSel.appendChild(o);
+    });
+
+    cachedSettings.cassette_presets.forEach((p,i) => {
+      if (catFilter && p.category !== catFilter) return;
+      if (manFilter && p.manufacturer !== manFilter) return;
       const opt = document.createElement('option');
       opt.value = i;
-      opt.textContent = p.model;
+      opt.textContent = p.model + (p.manufacturer?" ("+p.manufacturer+")":"");
       sel.appendChild(opt);
     });
   }
@@ -53,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
     mode.value = 'custom';
     customSection.style.display = 'block';
   });
+
+  document.getElementById('filter-category').addEventListener('change', populatePresetList);
+  document.getElementById('filter-manufacturer').addEventListener('change', populatePresetList);
 
   document.getElementById('download-presets').addEventListener('click', () => {
     if (!cachedSettings) return;
