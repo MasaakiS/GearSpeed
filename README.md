@@ -1,66 +1,85 @@
 # GearSpeed
 
-Pythonista 3 向けに作成されたロードバイクのギア速度表ジェネレータ。
+ロードバイクのギア速度表ジェネレータ。
+Pythonista 3（iOS）版および Web/PWA 版として動作します。
+
+## デモ（Web 版）
+
+**GitHub Pages:** https://masaakis.github.io/GearSpeed/
+
+ブラウザからアクセスしてすぐに使えます。モバイル端末で「ホーム画面に追加」すると PWA としてオフラインでも利用可能です。
 
 ## 概要
 
-- フロントギア・リアギア構成・ホイールサイズ・タイヤ幅を入力して
-  ケイデンスごとの速度を計算し、表形式で表示する。
-- 日本語／英語対応、ダークモード対応。
-- プリセットの保存・読み込み・削除、クリップボード貼り付け、共有。
-- Pythonista 専用の UI モジュールを使用しているため、iPhone/iPad 上で実行。
+- フロントギア・リアギア構成・ホイールサイズ・タイヤ幅を入力して、ケイデンスごとの速度を計算し表形式で表示する。
+- 速度・ギア比差をカラーグラデーションで視覚化。
+- ダークモード自動対応（OS 設定に連動）。
+- カセットプリセットの選択・ダウンロード。
+- カスタムギアセットの保存・読み込み・エクスポート（localStorage）。
+- 生成した表をクリップボードにコピーして共有。
+- Service Worker によるオフラインキャッシュ対応（PWA）。
 
 ## ファイル構成
 
 ```
-bike_speed_settings.json   # 設定とプリセットを保持
-gear_speed.py             # メインスクリプト
-README.md                 # この README
+GearSpeed/
+├── docs/                        # Web/PWA 版（GitHub Pages 公開ディレクトリ）
+│   ├── index.html               # UI（HTML）
+│   ├── app.js                   # 計算・UI ロジック（JavaScript）
+│   ├── style.css                # スタイルシート
+│   ├── manifest.json            # PWA マニフェスト
+│   ├── service-worker.js        # オフラインキャッシュ
+│   └── bike_speed_settings.json # カセットプリセット定義
+├── gear_speed_backup.py         # オリジナルの Pythonista 版スクリプト（バックアップ）
+└── README.md                    # このファイル
 ```
 
 ## 主要機能
 
-1. フロントギア／ホイール／タイヤ幅設定
-2. "Generate" ボタンで速度表を生成
-3. 全ギア（9-51T）または任意のカスタムギアセットを指定可能
-4. テーマ設定（自動/ライト/ダーク）
-5. プリセットの保存・読込・削除
-6. クリップボードからギア構成を読み込み
-7. 生成した表をクリップボードにコピーして共有
+### Web/PWA 版（`docs/`）
 
-## 依存モジュール
+1. フロントギア（20〜60T）／ホイールサイズ（700c / 650c）／タイヤ幅設定
+2. モード選択：全ギア（9〜51T）または カスタム入力
+3. **カセットプリセット** — `bike_speed_settings.json` から読み込み、選択するだけでリアギアを自動入力
+4. **プリセットダウンロード** — 現在のプリセット JSON をファイルとして保存
+5. **カスタムギアセットの保存／読み込み** — ブラウザの localStorage に名前付きで保存・呼び出し
+6. **カスタムギアセットのエクスポート** — `custom_gear_sets.json` としてダウンロード
+7. "Generate" ボタンで速度表を生成（ケイデンス 70 / 80 / 90 / 100 / 110 rpm）
+8. 速度・ギア比差をカラーグラデーションで表示
+9. 表をクリップボードにコピー
 
-- Python標準ライブラリ：`math`, `json`, `os`, `re`, `locale`
-- Pythonista 専用：`ui`, `console`, `dialogs`, `clipboard`, `objc_util`
+### Pythonista 版（`gear_speed_backup.py`）
 
-## 実行方法
+- iPhone/iPad 上の Pythonista 3 で動作するオリジナル版。
+- `ui`, `console`, `dialogs`, `clipboard`, `objc_util` などの Pythonista 専用モジュールを使用。
+- 現在はバックアップとして保存されています。
 
-1. Pythonista 3 を起動
-2. `gear_speed.py` を開き、実行ボタンをタップ
+## 使い方
 
-## Web 版への移植
+### Web 版
 
-本リポジトリには純粋な計算ロジックが含まれているため、
-HTML/CSS/JavaScript に書き換えることでブラウザ上でも動作可能。
-静的サーバ（GitHub Pages 等）でホスティングできる。
+1. https://masaakis.github.io/GearSpeed/ をブラウザで開く。
+2. 各パラメータを設定し「Generate」をタップ／クリック。
+3. （任意）モバイルブラウザのメニューから「ホーム画面に追加」で PWA としてインストール。
 
-### GitHub Pages への公開手順
-1. `docs/` フォルダーを作成し、その中に以下のファイルを置く:
-   - `index.html` (ユーザーインタフェースと計算ロジック)
-   - `style.css` (スタイル)
-   - `app.js` (JavaScript ロジック)
-   - `manifest.json` (PWA マニフェスト)
-   - `service-worker.js` (オフラインキャッシュ)
-2. リポジトリの GitHub 設定で GitHub Pages のソースを `main` ブランチの
-   `docs/` フォルダーに指定する。
-3. コミットとプッシュを行うと、しばらくして `https://<ユーザー名>.github.io/<リポ名>/`
-   で公開される。
-4. モバイル端末でサイトを開き、ブラウザのメニューから「ホーム画面に追加」して
-   PWA としてインストールできる。
+### Pythonista 版（ローカル実行）
 
-この Web 版はダークモードに対応し、ネットワークオフライン時も動作します。
+1. Pythonista 3 を起動。
+2. `gear_speed_backup.py` を開き、実行ボタンをタップ。
+
+## 技術スタック
+
+| 区分 | 内容 |
+|------|------|
+| Web フロントエンド | HTML / CSS / Vanilla JavaScript |
+| PWA | Web App Manifest + Service Worker |
+| ホスティング | GitHub Pages（`docs/` ブランチ） |
+| オリジナル版 | Python 3（Pythonista 3 on iOS） |
+
+## ライセンス
+
+MIT License
 
 ---
 
-© 2026 (Your Name)  
-ライセンスは必要に応じて追加してください。# GearSpeed
+© 2026 MasaakiS
