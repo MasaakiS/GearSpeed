@@ -113,6 +113,42 @@ document.addEventListener('DOMContentLoaded', () => {
     URL.revokeObjectURL(url);
   });
 
+  // state persistence
+  function saveState() {
+    const state = {
+      front: front.value,
+      wheel: wheel.value,
+      tire: tire.value,
+      mode: mode.value,
+      rear: rearInput.value
+    };
+    localStorage.setItem('formState', JSON.stringify(state));
+  }
+
+  function loadState() {
+    try {
+      const state = JSON.parse(localStorage.getItem('formState')||'{}');
+      if (state.front) front.value = state.front;
+      if (state.wheel) wheel.value = state.wheel;
+      if (state.tire) tire.value = state.tire;
+      if (state.mode) {
+        mode.value = state.mode;
+        customSection.style.display = state.mode === 'custom' ? 'block' : 'none';
+      }
+      if (state.rear) rearInput.value = state.rear;
+    } catch(e) {
+      console.warn('failed to load state', e);
+    }
+  }
+
+  // attach listeners for form inputs
+  [front, wheel, tire, mode, rearInput].forEach(el => {
+    el.addEventListener('change', saveState);
+  });
+
+  // load stored inputs before anything else
+  loadState();
+
   // fetch settings on start
   fetchSettings();
 
