@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!cachedSettings || !cachedSettings.cassette_presets) return;
     const catFilter = document.getElementById('filter-category').value;
     const manFilter = document.getElementById('filter-manufacturer').value;
+    const speedsFilter = document.getElementById('filter-speeds').value;
     const sel = document.getElementById('preset');
     sel.innerHTML = '<option value="">-- select --</option>';
     // also refresh manufacturer options
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cachedSettings.cassette_presets.forEach((p,i) => {
       if (catFilter && p.category !== catFilter) return;
       if (manFilter && p.manufacturer !== manFilter) return;
+      if (speedsFilter && String(p.speeds) !== speedsFilter) return;
       const opt = document.createElement('option');
       opt.value = i;
       opt.textContent = p.model + (p.manufacturer?" ("+p.manufacturer+")":"");
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('filter-category').addEventListener('change', populatePresetList);
   document.getElementById('filter-manufacturer').addEventListener('change', populatePresetList);
+  document.getElementById('filter-speeds').addEventListener('change', populatePresetList);
 
   document.getElementById('download-presets').addEventListener('click', () => {
     if (!cachedSettings) return;
