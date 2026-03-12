@@ -112,7 +112,7 @@
       "type": "SRAM MTB用（Eagle XG-1299など、XDボディ）",
       "category": "MTB",
       "manufacturer": "SRAM",
-      "model": "XX SL Eagle T-Type XS-1299 (13速) 10-52T",
+              "model": "XX SL Eagle T-Type XS-1299 10-52T",
       "gears": [10,12,14,16,18,21,24,28,32,38,44,52],
       "speeds": 12
     },
