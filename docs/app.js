@@ -12,10 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyBtn = document.getElementById('copy');
   const tableDiv = document.getElementById('table');
 
-  mode.addEventListener('change', () => {
-    customSection.style.display = mode.value === 'custom' ? 'block' : 'none';
-  });
-
+      mode.addEventListener('change', () => {
+      const presetSection = document.getElementById('preset-section');
+      presetSection.style.display = mode.value === 'preset' ? 'block' : 'none';
+      customSection.style.display = mode.value === 'custom' ? 'block' : 'none';
+    });
   // settings and presets
   let cachedSettings = null;
   function fetchSettings() {
@@ -133,7 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (state.tire) tire.value = state.tire;
       if (state.mode) {
         mode.value = state.mode;
-        customSection.style.display = state.mode === 'custom' ? 'block' : 'none';
+                const presetSec = document.getElementById('preset-section');
+          presetSec.style.display = state.mode === 'preset' ? 'block' : 'none';
+          customSection.style.display = state.mode === 'custom' ? 'block' : 'none';
       }
       if (state.rear) rearInput.value = state.rear;
     } catch(e) {
@@ -162,14 +165,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const t = parseFloat(tire.value);
     const diameter = w + 2 * t + 5; // mm
     let gears = [];
-    if (mode.value === 'all') {
-      for (let i = 9; i <= 51; i++) gears.push(i);
-    } else {
-      const parts = rearInput.value.split(/[^0-9]+/).filter(s => s);
-      gears = parts.map(s => parseInt(s,10)).filter(n => !isNaN(n));
-      if (gears.length === 0) { alert('Enter rear gear numbers'); return; }
-    }
-    createTable(f, diameter, gears);
+          if (mode.value === 'preset') {
+          const idx = document.getElementById('preset').value;
+          if (idx === '') { alert('プリセットを選択してください'); return; }
+          gears = cachedSettings.cassette_presets[idx].gears.slice();
+        } else {
+          const parts = rearInput.value.split(/[^0-9]+/).filter(s => s);
+          gears = parts.map(s => parseInt(s,10)).filter(n => !isNaN(n));
+          if (gears.length === 0) { alert('Enter rear gear numbers'); return; }
+        }createTable(f, diameter, gears);
   });
 
   clearBtn.addEventListener('click', () => {
