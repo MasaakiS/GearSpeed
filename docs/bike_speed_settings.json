@@ -6,96 +6,115 @@
   "cassette_presets": [
     {
       "type": "ロード用スプロケット",
+      "category": "ロード",
       "model": "DURA-ACE CS-R9200 / ULTEGRA CS-R8100 11-30T",
       "gears": [11,12,13,14,15,16,17,19,21,24,27,30]
     },
     {
       "type": "ロード用スプロケット",
+      "category": "ロード",
       "model": "DURA-ACE CS-R9200 / ULTEGRA CS-R8100 11-34T",
       "gears": [11,12,13,14,15,17,19,21,24,27,30,34]
     },
     {
       "type": "ロード用スプロケット",
+      "category": "ロード",
       "model": "105 CS-R7100 / R7101 11-34T",
       "gears": [11,12,13,14,15,17,19,21,24,27,30,34]
     },
     {
       "type": "ロード用スプロケット",
+      "category": "ロード",
       "model": "105 CS-HG710 11-36T",
       "gears": [11,12,13,14,15,17,19,21,24,28,32,36]
     },
     {
       "type": "MTB用スプロケット（Micro Spline）",
+      "category": "MTB",
       "model": "XTR CS-M9100 / XT CS-M8100 10-45T",
       "gears": [10,12,14,16,18,21,24,28,32,36,40,45]
     },
     {
       "type": "MTB用スプロケット（Micro Spline）",
+      "category": "MTB",
       "model": "XTR CS-M9100 / XT CS-M8100 / SLX CS-M7100 10-51T",
       "gears": [10,12,14,16,18,21,24,28,33,39,45,51]
     },
     {
       "type": "MTB用スプロケット（Micro Spline）",
+      "category": "MTB",
       "model": "DEORE CS-M6100 10-51T",
       "gears": [10,12,14,16,18,21,24,28,33,39,45,51]
     },
     {
       "type": "SRAM ロード用（AXS/XG-1270など、XDRボディ）",
+      "category": "ロード",
       "model": "RED/FORCE XG-1270/1291 10-28T",
       "gears": [10,11,12,13,14,15,16,17,19,21,24,28]
     },
     {
       "type": "SRAM ロード用（AXS/XG-1270など、XDRボディ）",
+      "category": "ロード",
       "model": "FORCE/RIVAL XG-1270/1251 10-30T",
       "gears": [10,11,12,13,14,15,17,19,21,24,27,30]
     },
     {
       "type": "SRAM ロード用（AXS/XG-1270など、XDRボディ）",
+      "category": "ロード",
       "model": "RIVAL XG-1250/1270 10-33T",
       "gears": [10,11,12,13,14,15,19,21,24,27,30,33]
     },
     {
       "type": "SRAM ロード用（AXS/XG-1270など、XDRボディ）",
+      "category": "ロード",
       "model": "RIVAL XG-1251/1270 10-36T",
       "gears": [10,11,12,13,14,15,19,21,24,27,30,36]
     },
     {
       "type": "SRAM ロード用（AXS/XG-1270など、XDRボディ）",
+      "category": "ロード",
       "model": "RIVAL XPLR PG-1231 10-44T",
       "gears": [10,11,12,13,14,15,17,19,21,24,38,44]
     },
     {
       "type": "SRAM MTB用（Eagle XG-1299など、XDボディ）",
+      "category": "MTB",
       "model": "XX1/X01 GX XG-1299/1275 10-50T",
       "gears": [10,12,14,16,18,21,24,28,32,36,42,50]
     },
     {
       "type": "SRAM MTB用（Eagle XG-1299など、XDボディ）",
+      "category": "MTB",
       "model": "XX SL Eagle T-Type XS-1299 (13速) 10-52T",
       "gears": [10,12,14,16,18,21,24,28,32,38,44,52]
     },
     {
       "type": "カンパニューロ ロード用（Super Recordなど、専用ボディ）",
+      "category": "ロード",
       "model": "Super Record/Chorus 11-29T",
       "gears": [11,12,13,14,15,16,17,19,21,23,25,29]
     },
     {
       "type": "カンパニューロ ロード用（Super Recordなど、専用ボディ）",
+      "category": "ロード",
       "model": "Super Record/Chorus 11-32T",
       "gears": [11,12,13,14,15,16,17,19,21,24,27,32]
     },
     {
       "type": "カンパニューロ ロード用（Super Recordなど、専用ボディ）",
+      "category": "ロード",
       "model": "Chorus 11-34T",
       "gears": [11,12,13,14,15,16,17,19,21,24,27,34]
     },
     {
       "type": "カンパニューロ グラベル用（Ekar、N3Wボディ）",
+      "category": "グラベル",
       "model": "Ekar GT/Endurance (13速) 9-36T",
       "gears": [9,10,11,12,13,15,17,19,22,26,30,34,36]
     },
     {
       "type": "カンパニューロ グラベル用（Ekar、N3Wボディ）",
+      "category": "グラベル",
       "model": "Ekar GT (13速) 10-44T",
       "gears": [10,11,12,13,15,17,19,22,26,30,34,40,44]
     }
