@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const catFilter = document.getElementById('filter-category').value;
     const manFilter = document.getElementById('filter-manufacturer').value;
         const speedsFilter = (document.getElementById('filter-speeds') || {value:'12'}).value || '12';
+        const sel = document.getElementById('preset');
     sel.innerHTML = '<option value="">-- select --</option>';
     // also refresh manufacturer options
     const manSet = new Set();
