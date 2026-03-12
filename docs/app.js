@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Array.from(manSet).sort().forEach(m => {
       const o = document.createElement('option'); o.value=m; o.textContent=m; manSel.appendChild(o);
     });
+    manSel.value = manFilter;
 
     cachedSettings.cassette_presets.forEach((p,i) => {
       if (catFilter && p.category !== catFilter) return;
