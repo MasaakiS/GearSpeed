@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>GearSpeed</title>
-  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
@@ -27,6 +26,19 @@
       </select>
     </label><br>
     <div id="preset-section">
+      <label>Category:
+        <select id="filter-category">
+          <option value="">All</option>
+          <option value="ロード">ロード</option>
+          <option value="MTB">MTB</option>
+          <option value="グラベル">グラベル</option>
+        </select>
+      </label>
+      <label>Manufacturer:
+        <select id="filter-manufacturer">
+          <option value="">All</option>
+        </select>
+      </label>
       <label>Preset cassette:
         <select id="preset">
           <option value="">-- select --</option>

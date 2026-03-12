@@ -1,13 +1,13 @@
 # GearSpeed
 
 ロードバイクのギア速度表ジェネレータ。
-Pythonista 3（iOS）版および Web/PWA 版として動作します。
+Pythonista 3（iOS）版および Web 版として動作します。
 
 ## デモ（Web 版）
 
 **GitHub Pages:** https://masaakis.github.io/GearSpeed/
 
-ブラウザからアクセスしてすぐに使えます。モバイル端末で「ホーム画面に追加」すると PWA としてオフラインでも利用可能です。
+ブラウザからアクセスしてすぐに使えます。
 
 ## 概要
 
@@ -17,7 +17,7 @@ Pythonista 3（iOS）版および Web/PWA 版として動作します。
 - カセットプリセットの選択・ダウンロード。
 - カスタムギアセットの保存・読み込み・エクスポート（localStorage）。
 - 生成した表をクリップボードにコピーして共有。
-- Service Worker によるオフラインキャッシュ対応（PWA）。
+- オフラインでのキャッシュは標準的なブラウザキャッシュに依存します。
 
 ## ファイル構成
 
@@ -27,8 +27,8 @@ GearSpeed/
 │   ├── index.html               # UI（HTML）
 │   ├── app.js                   # 計算・UI ロジック（JavaScript）
 │   ├── style.css                # スタイルシート
-│   ├── manifest.json            # PWA マニフェスト
-│   ├── service-worker.js        # オフラインキャッシュ
+│   ├── manifest.json            # マニフェスト(旧PWA用ファイル、現在は利用しない)
+│   ├── service-worker.js        # （PWA用、削除しても構いません）
 │   └── bike_speed_settings.json # カセットプリセット定義
 ├── gear_speed_backup.py         # オリジナルの Pythonista 版スクリプト（バックアップ）
 └── README.md                    # このファイル
@@ -60,7 +60,7 @@ GearSpeed/
 
 1. https://masaakis.github.io/GearSpeed/ をブラウザで開く。
 2. 各パラメータを設定し「Generate」をタップ／クリック。
-3. （任意）モバイルブラウザのメニューから「ホーム画面に追加」で PWA としてインストール。
+3. （任意）モバイルブラウザのメニューから「ホーム画面に追加」。
 
 ### Pythonista 版（ローカル実行）
 
@@ -72,7 +72,7 @@ GearSpeed/
 | 区分 | 内容 |
 |------|------|
 | Web フロントエンド | HTML / CSS / Vanilla JavaScript |
-| PWA | Web App Manifest + Service Worker |
+| (non-PWA) | シンプルな静的ページ |
 | ホスティング | GitHub Pages（`docs/` ブランチ） |
 | オリジナル版 | Python 3（Pythonista 3 on iOS） |
 
