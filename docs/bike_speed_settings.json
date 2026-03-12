@@ -1,6 +1,6 @@
 {
   "theme": "auto",
-  "front_gear": 50,
+  "front_gear": 40,
   "wheel_size": "700c",
   "tire_width": 28,
   "cassette_presets": [
