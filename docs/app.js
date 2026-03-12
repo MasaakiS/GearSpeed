@@ -76,17 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('filter-manufacturer').addEventListener('change', populatePresetList);
   document.getElementById('filter-speeds').addEventListener('change', populatePresetList);
 
-  document.getElementById('download-presets').addEventListener('click', () => {
-    if (!cachedSettings) return;
-    const blob = new Blob([JSON.stringify(cachedSettings, null, 2)], {type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'bike_speed_settings.json';
-    a.click();
-    URL.revokeObjectURL(url);
-  });
-
   // custom gear sets stored separately in localStorage
   function loadCustomSets() {
     const list = JSON.parse(localStorage.getItem('customGears')||'[]');
@@ -122,17 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (item) {
       rearInput.value = item.gears.join(',');
     }
-  });
-
-  document.getElementById('export-custom').addEventListener('click', () => {
-    const list = JSON.parse(localStorage.getItem('customGears')||'[]');
-    const blob = new Blob([JSON.stringify(list, null,2)], {type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'custom_gear_sets.json';
-    a.click();
-    URL.revokeObjectURL(url);
   });
 
   // state persistence
