@@ -507,6 +507,134 @@
           "model": "RED XPLR AXS XG-1391 10-46T",
           "gears": [10,11,12,13,15,17,19,21,24,28,32,38,46],
           "speeds": 13
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "ULTEGRA CS-R8000 11-25T",
+          "gears": [11,12,13,14,15,16,17,19,21,23,25],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "ULTEGRA CS-R8000 11-28T",
+          "gears": [11,12,13,14,15,17,19,21,23,25,28],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "ULTEGRA CS-R8000 12-25T",
+          "gears": [12,13,14,15,16,17,18,19,21,23,25],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "ULTEGRA CS-R8000 14-28T",
+          "gears": [14,15,16,17,18,19,20,21,23,25,28],
+          "speeds": 11
+        },
+        {
+          "type": "グラベル用スプロケット",
+          "category": "グラベル",
+          "manufacturer": "Shimano",
+          "model": "GRX CS-HG800-11 11-34T",
+          "gears": [11,13,15,17,19,21,23,25,27,30,34],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "Tiagra CS-R4000 11-36T",
+          "gears": [11,13,15,17,19,21,23,25,28,32,36],
+          "speeds": 11
+        },
+        {
+          "type": "グラベル用スプロケット",
+          "category": "グラベル",
+          "manufacturer": "SRAM",
+          "model": "Force XPLR AXS XG-1271 10-44T",
+          "gears": [10,11,13,15,17,19,21,24,28,32,38,44],
+          "speeds": 12
+        },
+        {
+          "type": "グラベル用スプロケット",
+          "category": "グラベル",
+          "manufacturer": "SRAM",
+          "model": "Rival XPLR AXS XG-1251 10-44T",
+          "gears": [10,11,13,15,17,19,21,24,28,32,38,44],
+          "speeds": 12
+        },
+        {
+          "type": "グラベル用スプロケット",
+          "category": "グラベル",
+          "manufacturer": "Campagnolo",
+          "model": "EKAR 9-36T Endurance (13速)",
+          "gears": [9,10,11,12,13,14,16,18,20,23,27,31,36],
+          "speeds": 13
+        },
+        {
+          "type": "グラベル用スプロケット",
+          "category": "グラベル",
+          "manufacturer": "Campagnolo",
+          "model": "EKAR 9-42T Gravel Race (13速)",
+          "gears": [9,10,11,12,13,14,16,18,21,25,30,36,42],
+          "speeds": 13
+        },
+        {
+          "type": "グラベル用スプロケット",
+          "category": "グラベル",
+          "manufacturer": "Campagnolo",
+          "model": "EKAR 10-44T Gravel Adventure (13速)",
+          "gears": [10,11,12,13,14,15,17,19,22,26,32,39,44],
+          "speeds": 13
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "105 CS-R7000 11-25T",
+          "gears": [11,12,13,14,15,17,19,21,23,25],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "105 CS-R7000 11-28T",
+          "gears": [11,12,13,14,15,17,19,21,23,25,28],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "105 CS-R7000 11-30T",
+          "gears": [11,12,13,14,15,17,19,21,24,27,30],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "105 CS-R7000 11-32T",
+          "gears": [11,12,13,14,16,18,20,22,25,28,32],
+          "speeds": 11
+        },
+        {
+          "type": "ロード用スプロケット",
+          "category": "ロード",
+          "manufacturer": "Shimano",
+          "model": "105 CS-R7000 12-25T",
+          "gears": [12,13,14,15,16,17,18,19,21,23,25],
+          "speeds": 11
         }
   ]
 }
