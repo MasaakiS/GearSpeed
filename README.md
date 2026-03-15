@@ -15,6 +15,18 @@
 
 ブラウザからアクセスしてすぐに使えます。
 
+## スクリーンショット
+
+### Preset モード
+プリセットカセットを選択してギア速度表を生成
+
+<img src="docs/screenshots/preset-mode.png" width="390" alt="Preset mode screenshot">
+
+### Custom モード
+リアギア構成を手動入力してギア速度表を生成
+
+<img src="docs/screenshots/custom-mode.png" width="390" alt="Custom mode screenshot">
+
 ## 概要
 
 - フロントギア・リアギア構成・ホイールサイズ・タイヤ幅を入力して、ケイデンスごとの速度を計算し表形式で表示する。
