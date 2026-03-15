@@ -42,3 +42,49 @@ th, td {
     border-color: #555;
   }
 }
+/* ここから iPhone 13 縦画面向けのコンパクトレイアウト */
+@media (max-width: 390px) {
+  body {
+    margin: 4px;
+  }
+
+  h1 {
+    font-size: 1rem;
+    margin: 0 0 6px;
+  }
+
+  .controls-wrapper {
+    margin-bottom: 4px;
+  }
+
+  .form-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
+  .form-row label {
+    font-size: 0.8rem;
+    min-width: 6rem;
+  }
+
+  input[type="number"],
+  select {
+    font-size: 0.8rem;
+    padding: 1px 4px;
+    max-width: 5rem;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.75rem;
+    border-spacing: 0;
+  }
+
+  th,
+  td {
+    padding: 1px 3px;
+    line-height: 1.1;
+  }
+}
