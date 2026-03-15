@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mode.addEventListener('change', () => {
       const presetSection = document.getElementById('preset-section');
       presetSection.style.display = mode.value === 'preset' ? 'block' : 'none';
-      customSection.style.display = mode.value === 'custom' ? 'block' : 'none';
+            customSection.style.display = mode.value === 'custom' ? 'block' : (mode.value === 'preset' ? 'block' : 'none');
       saveState();
     });
   // settings and presets
@@ -66,8 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (idx === '') return;
     const p = cachedSettings.cassette_presets[idx];
     rearInput.value = p.gears.join(',');
-    mode.value = 'custom';
-    mode.dispatchEvent(new Event('change'));
     saveState();
   });
   document.getElementById('filter-category').addEventListener('change', populatePresetList);
