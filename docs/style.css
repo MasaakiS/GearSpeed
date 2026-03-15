@@ -28,6 +28,14 @@ button {
 #preset-section .form-row:last-child {
   display: block;
 }
+#rear {
+  height: 2em;
+  resize: vertical;
+  overflow-y: auto;
+  line-height: 1.4;
+  box-sizing: border-box;
+  width: 100%;
+}
 table {
   border-collapse: collapse;
   width: 100%;
