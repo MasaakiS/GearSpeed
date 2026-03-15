@@ -18,6 +18,16 @@ button {
   border: 1px solid #ccc;
   padding: 0.5rem;
 }
+#preset-section .form-row:last-child select,
+#preset-section .form-row:last-child label {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+#preset-section .form-row:last-child {
+  display: block;
+}
 table {
   border-collapse: collapse;
   width: 100%;
