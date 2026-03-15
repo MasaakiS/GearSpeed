@@ -14,7 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
       mode.addEventListener('change', () => {
       const presetSection = document.getElementById('preset-section');
       presetSection.style.display = mode.value === 'preset' ? 'block' : 'none';
-            customSection.style.display = mode.value === 'custom' ? 'block' : (mode.value === 'preset' ? 'block' : 'none');
+      if (mode.value === 'custom') {
+        customSection.style.display = 'block';
+        // 表が表示されていれば gear列からrearInputに復元
+        const tds = tableDiv.querySelectorAll('tbody tr td:nth-child(2)');
+        if (tds.length > 0) {
+          rearInput.value = Array.from(tds).map(td => td.textContent.trim()).join(',');
+        }
+      } else {
+        customSection.style.display = 'block';
+      }
       saveState();
     });
   // settings and presets
@@ -152,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const idx = document.getElementById('preset').value;
       if (idx === '') { alert('\u30d7\u30ea\u30bb\u30c3\u30c8\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044'); return; }
       gears = cachedSettings.cassette_presets[idx].gears.slice();
+            customSection.style.display = 'none';
     } else {
       const parts = rearInput.value.split(/[^0-9]+/).filter(s => s);
       gears = parts.map(s => parseInt(s,10)).filter(n => !isNaN(n));
