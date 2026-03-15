@@ -11,64 +11,90 @@
   <h1>GearSpeed</h1>
 
   <form id="settings">
-          <label>Front gear: <input type="number" id="front" min="20" max="60" value="40"></label><br>
-    <label>Wheel: 
-      <select id="wheel">
-        <option value="622">700c</option>
-        <option value="571">650c</option>
-      </select>
-    </label><br>
-          <label>Tire width (mm): <input type="number" id="tire" min="23" max="50" value="28"></label><br>
-    <label>Mode: 
-      <select id="mode">
-                                <option value="preset" selected>Preset</option>
-        <option value="custom">Custom</option>
-      </select>
-    </label><br>
-    <div id="preset-section">
-            <label>Speeds:
-        <select id="filter-speeds">
-          <option value="">All</option>
-          <option value="9">9s</option>
-          <option value="10">10s</option>
-          <option value="11">11s</option>
-          <option value="12" selected>12s</option>
-          <option value="13">13s</option>
-        </select>
-      </label>
-      <label>Category:
-        <select id="filter-category">
-          <option value="">All</option>
-          <option value="ロード">ロード</option>
-          <option value="MTB">MTB</option>
-          <option value="グラベル">グラベル</option>
-        </select>
-      </label>
-      <label>Manufacturer:
-        <select id="filter-manufacturer">
-          <option value="">All</option>
-        </select>
-      </label>
+    <div class="controls-wrapper">
 
-      <label>Preset cassette:
-        <select id="preset">
-          <option value="">-- select --</option>
+      <div class="form-row">
+        <label for="front">Front gear:</label>
+        <input type="number" id="front" min="20" max="60" value="40">
+      </div>
+
+      <div class="form-row">
+        <label for="wheel">Wheel:</label>
+        <select id="wheel">
+          <option value="622">700c</option>
+          <option value="571">650c</option>
         </select>
-      </label>
-            </div>
-    <div id="custom-gears" style="display:none">
-      <label>Rear gears (comma separated):<br>
+      </div>
+
+      <div class="form-row">
+        <label for="tire">Tire width (mm):</label>
+        <input type="number" id="tire" min="23" max="50" value="28">
+      </div>
+
+      <div class="form-row">
+        <label for="mode">Mode:</label>
+        <select id="mode">
+          <option value="preset" selected>Preset</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+
+      <div id="preset-section">
+        <div class="form-row">
+          <label for="filter-speeds">Speeds:</label>
+          <select id="filter-speeds">
+            <option value="">All</option>
+            <option value="9">9s</option>
+            <option value="10">10s</option>
+            <option value="11">11s</option>
+            <option value="12" selected>12s</option>
+            <option value="13">13s</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="filter-category">Category:</label>
+          <select id="filter-category">
+            <option value="">All</option>
+            <option value="ロード">ロード</option>
+            <option value="MTB">MTB</option>
+            <option value="グラベル">グラベル</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="filter-manufacturer">Manufacturer:</label>
+          <select id="filter-manufacturer">
+            <option value="">All</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="preset">Preset cassette:</label>
+          <select id="preset">
+            <option value="">-- select --</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="custom-gears" style="display:none">
+        <div class="form-row">
+          <label for="rear">Rear gears (comma separated):</label>
+        </div>
         <textarea id="rear" placeholder="e.g. 11,13,15" rows="3" cols="30"></textarea>
-      </label><br>
-      <button type="button" id="save-custom">Save custom set</button>
-      <label>Saved sets:
-        <select id="custom-list"></select>
-      </label>
-            </div>
+        <button type="button" id="save-custom">Save custom set</button>
+        <label>Saved sets:
+          <select id="custom-list"></select>
+        </label>
+      </div>
+
+    </div>
+
     <button type="button" id="generate">Generate</button>
     <button type="button" id="clear">Clear</button>
     <button type="button" id="copy">Copy</button>
-        </form>
+  </form>
+
   <div id="table"></div>
 
 </body>
